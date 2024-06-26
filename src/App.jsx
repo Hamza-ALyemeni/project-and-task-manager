@@ -28,7 +28,14 @@ function handleAddTask(text) {
 
 }
 
-function handleDeleteTask() {}
+function handleDeleteTask(id) {
+  setProjectsState(prevState => {
+    return {
+      ...prevState,
+      tasks: prevState.tasks.filter((task)=>task.id !== id),
+    };
+  });
+}
 
 function handleSelectProject(id) {
   setProjectsState(prevState => {
@@ -86,7 +93,13 @@ function handleDeleteProject() {
 
 const selectedProject = projectsState.projects.find((project) => project.id === projectsState.projecSelectedId);
 
-let content = <SelectedProject project={selectedProject} onDelete={handleDeleteProject} onAddTask={handleAddTask} onDeleteTask={handleDeleteTask} tasks={projectsState.tasks}/>;
+let content = <SelectedProject 
+project={selectedProject} 
+onDelete={handleDeleteProject} 
+onAddTask={handleAddTask} 
+onDeleteTask={handleDeleteTask}
+tasks={projectsState.tasks}
+/>;
 
 if (projectsState.projecSelectedId === null) {
   content = <AddNewProject onAdd={handleAddProject} onCancel={handleCancelAddProject}/>
