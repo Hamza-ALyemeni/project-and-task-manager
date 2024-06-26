@@ -1,6 +1,6 @@
 import { useState } from "react";
 import NoProjectSelected from "./components/NoProjectSelected.jsx";
-import AddNewProject from "./components/addNewProject.jsx";
+import AddNewProject from "./components/AddNewProject.jsx";
 import ProjectSideBar from "./components/projectSideBar.jsx";
 import SelectedProject from "./components/SelectedProject.jsx";
 
